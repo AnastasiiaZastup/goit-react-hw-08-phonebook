@@ -88,12 +88,7 @@ export const LoginForm = () => {
               />
               <FormErrorMessage>{formik.errors.password}</FormErrorMessage>
             </FormControl>
-            <Button
-              type="submit"
-              colorScheme="purple"
-              width="full"
-              marginTop="4"
-            >
+            <Button type="submit" colorScheme="blue" width="full" marginTop="4">
               Sign In
             </Button>
           </VStack>

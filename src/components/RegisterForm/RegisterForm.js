@@ -48,7 +48,7 @@ export const RegisterForm = () => {
   }, [isError, dispatch]);
 
   return (
-    <Flex bg="gray.100" align="center" justify="center" marginTop="10%">
+    <Flex bg="white" align="center" justify="center" marginTop="10%">
       <Box bg="white" p={8} rounded="md">
         <form onSubmit={formik.handleSubmit}>
           <VStack spacing={4} align="flex-start">
@@ -103,12 +103,7 @@ export const RegisterForm = () => {
               />
               <FormErrorMessage>{formik.errors.password}</FormErrorMessage>
             </FormControl>
-            <Button
-              type="submit"
-              colorScheme="purple"
-              width="full"
-              marginTop="4"
-            >
+            <Button type="submit" colorScheme="blue" width="full" marginTop="2">
               Sign Up
             </Button>
           </VStack>

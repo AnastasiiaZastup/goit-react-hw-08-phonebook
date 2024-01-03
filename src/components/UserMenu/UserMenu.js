@@ -1,11 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import {
-  ButtonsContainer,
-  MenuContainer,
-  StyledIcon,
-  StyledUser,
-} from './UserMenu.styled';
+import { ButtonsContainer, MenuContainer, StyledUser } from './UserMenu.styled';
 import { Button } from '@chakra-ui/react';
 import {
   selectIsLoggedin,
@@ -23,24 +18,26 @@ export const UserMenu = () => {
   return (
     <MenuContainer>
       <Link to="/">
-        <StyledIcon />
+        <Button variant="text" color="#0099cc">
+          Home
+        </Button>
       </Link>
 
       {isLoggedin ? (
         <ButtonsContainer>
           {userEmail && <StyledUser>{userEmail}</StyledUser>}
 
-          <Button type="button" colorScheme="purple" onClick={handleLogout}>
+          <Button type="button" colorScheme="blue" onClick={handleLogout}>
             Logout
           </Button>
         </ButtonsContainer>
       ) : (
         <ButtonsContainer>
-          <Button type="button" colorScheme="purple">
+          <Button type="button" colorScheme="blue">
             <Link to="/register">Registration</Link>
           </Button>
 
-          <Button type="button" colorScheme="purple">
+          <Button type="button" colorScheme="blue">
             <Link to="/login">Login</Link>
           </Button>
         </ButtonsContainer>

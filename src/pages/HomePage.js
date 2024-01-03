@@ -15,7 +15,7 @@ export default function HomePage() {
       <p>Hello {userName}!</p>
       <Button
         variant="link"
-        colorScheme="purple"
+        colorScheme="blue"
         width="200px"
         marginLeft="auto"
         marginRight="auto"
@@ -24,8 +24,12 @@ export default function HomePage() {
       </Button>
     </div>
   ) : (
-    <>
-      <p>Wellcome to Phonebook!</p>
-    </>
+    <div style={{ textAlign: 'center', marginTop: '15%' }}>
+      <h1 style={{ fontSize: '40px' }}>Welcome to Phonebook!</h1>
+      <p style={{ fontSize: 'larger' }}>
+        To access your contact book, please register or sign in to your existing
+        account.
+      </p>
+    </div>
   );
 }
