@@ -14,15 +14,15 @@ export const User = () => {
   return (
     <Container>
       <Title>New Contact</Title>
-      <Phonebook></Phonebook>
+      <Phonebook />
 
       <Title>My Phonebook</Title>
       {contacts.length > 0 ? (
-        <Filter></Filter>
+        <Filter />
       ) : (
         !error && !isLoading && <p>You don't have any contacts</p>
       )}
-      <Contacts></Contacts>
+      <Contacts />
       {error && <p>{error}</p>}
       {isLoading && (
         <LineWave

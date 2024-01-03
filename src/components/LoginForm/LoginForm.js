@@ -14,7 +14,6 @@ import { useFormik } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../../redux/authorization/authOperations';
 import { selectIsError } from '../../redux/authorization/authSelectors';
-import { useEffect } from 'react';
 import { resetError } from '../../redux/authorization/authSlice';
 import toast from 'react-hot-toast';
 
@@ -33,17 +32,21 @@ export const LoginForm = () => {
       password: '',
     },
     validationSchema: schema,
-    onSubmit: values => {
-      dispatch(login(values));
+    onSubmit: async values => {
+      try {
+        await dispatch(login(values)).unwrap();
+        toast.success('Login successful');
+        dispatch(resetError());
+      } catch (error) {
+        if (isError.rejectedWithValue) {
+          const { payload } = isError.rejectedWithValue;
+          toast.error(payload.message);
+        } else {
+          toast.error('An error occurred during login');
+        }
+      }
     },
   });
-
-  useEffect(() => {
-    if (isError) {
-      toast.error('Your email or password is incorrect');
-      dispatch(resetError());
-    }
-  }, [isError, dispatch]);
 
   return (
     <Flex align="center" justify="center" marginTop="10%">

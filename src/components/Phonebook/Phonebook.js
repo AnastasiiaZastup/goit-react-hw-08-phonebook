@@ -28,7 +28,7 @@ export const Phonebook = () => {
   const contacts = useSelector(selectContacts);
   const isLoading = useSelector(selectIsLoading);
 
-  const handleAddContact = values => {
+  const handleAddContact = async values => {
     const checkContact = contacts.some(
       contact => contact.name.toLowerCase() === values.name.toLowerCase()
     );
@@ -41,8 +41,13 @@ export const Phonebook = () => {
       );
       return;
     }
-    dispatch(addNewContact(values));
-    toast.success('Successfully created!');
+    try {
+      const result = await dispatch(addNewContact(values));
+      result && toast.success('Successfully created!');
+    } catch (error) {
+      console.error('Error adding contact:', error);
+      toast.error('An error occurred while creating the contact.');
+    }
   };
 
   return (

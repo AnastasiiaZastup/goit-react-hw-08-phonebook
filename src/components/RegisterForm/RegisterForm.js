@@ -13,7 +13,6 @@ import {
 import { useFormik } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import { registration } from '../../redux/authorization/authOperations';
-import { useEffect } from 'react';
 import { resetError } from '../../redux/authorization/authSlice';
 import { selectIsError } from '../../redux/authorization/authSelectors';
 import toast from 'react-hot-toast';
@@ -35,17 +34,21 @@ export const RegisterForm = () => {
       password: '',
     },
     validationSchema: schema,
-    onSubmit: values => {
-      dispatch(registration(values));
+    onSubmit: async values => {
+      try {
+        await dispatch(registration(values)).unwrap();
+        toast.success('Registration successful');
+        dispatch(resetError());
+      } catch (error) {
+        if (isError.rejectedWithValue) {
+          const { payload } = isError.rejectedWithValue;
+          toast.error(payload.message);
+        } else {
+          toast.error('An error occurred during register');
+        }
+      }
     },
   });
-
-  useEffect(() => {
-    if (isError) {
-      toast.error('Your email is invalid or already registered');
-      dispatch(resetError());
-    }
-  }, [isError, dispatch]);
 
   return (
     <Flex bg="white" align="center" justify="center" marginTop="10%">
