@@ -69,10 +69,11 @@ export const Phonebook = () => {
           <Error name="number" component="p" />
         </StyledLabel>
         <Button
-          vtype="submit"
+          variant="outline"
           colorScheme="blue"
-          width="full"
+          size="sm"
           marginTop="4"
+          type="submit"
           disabled={isLoading}
         >
           Add contact
