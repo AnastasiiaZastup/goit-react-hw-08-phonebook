@@ -10,8 +10,8 @@ import { Button } from '@chakra-ui/react';
 import {
   selectIsLoggedin,
   selectUserEmail,
-} from 'redux/authorization/authSelectors';
-import { logout } from 'redux/authorization/authOperations';
+} from '../../redux/authorization/authSelectors';
+import { logout } from '../../redux/authorization/authOperations';
 
 export const UserMenu = () => {
   const userEmail = useSelector(selectUserEmail);

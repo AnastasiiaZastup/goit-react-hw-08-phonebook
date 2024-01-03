@@ -4,8 +4,8 @@ import { Toaster } from 'react-hot-toast';
 import { Route, Routes } from 'react-router-dom';
 import { Layout } from './Layout/Layout';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectIsRefreshing } from 'redux/authorization/authSelectors';
-import { refresh } from 'redux/authorization/authOperations';
+import { selectIsRefreshing } from '../redux/authorization/authSelectors';
+import { refresh } from '../redux/authorization/authOperations';
 import { PrivateRoute } from './PrivateRoute/PrivateRoute';
 import { RestrictedRoute } from './RestrictedRoute/RestrictedRoute';
 

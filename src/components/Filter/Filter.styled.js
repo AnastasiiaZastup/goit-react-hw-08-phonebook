@@ -1,12 +1,16 @@
 import styled from 'styled-components';
 
-export const Filters = styled.div`
-  display: inline-flex;
-  flex-direction: column;
+export const StyledInput = styled.input`
+  display: block;
   width: 250px;
-  margin-left: 50px;
-  gap: 10px;
-  font-size: 20px;
-  margin-bottom: 20px;
-  font-weight: 500;
+  margin: 8px 0 24px 0;
+  padding: 16px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #dcdcdc;
+  height: 32px;
+`;
+
+export const StyledLabel = styled.label`
+  font-size: 18px;
 `;

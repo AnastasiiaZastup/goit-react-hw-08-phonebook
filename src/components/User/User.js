@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { selectError, selectIsLoading } from 'redux/selectors';
+import { selectError, selectIsLoading } from '../../redux/selectors';
 import { LineWave } from 'react-loader-spinner';
 import { Container, Title } from './User.styled';
 import { Filter } from 'components/Filter/Filter';

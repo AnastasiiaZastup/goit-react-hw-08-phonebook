@@ -12,10 +12,10 @@ import {
 } from '@chakra-ui/react';
 import { useFormik } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
-import { registration } from 'redux/authorization/authOperations';
+import { registration } from '../../redux/authorization/authOperations';
 import { useEffect } from 'react';
-import { resetError } from 'redux/authorization/authSlice';
-import { selectIsError } from 'redux/authorization/authSelectors';
+import { resetError } from '../../redux/authorization/authSlice';
+import { selectIsError } from '../../redux/authorization/authSelectors';
 import toast from 'react-hot-toast';
 
 const schema = Yup.object().shape({

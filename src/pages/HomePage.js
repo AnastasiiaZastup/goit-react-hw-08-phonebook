@@ -4,16 +4,15 @@ import { Link } from 'react-router-dom';
 import {
   selectIsLoggedin,
   selectUserName,
-} from 'redux/authorization/authSelectors';
-import { FlexContainer, Titel } from 'reusable/Styles.styled';
+} from '../redux/authorization/authSelectors';
 
 export default function HomePage() {
   const isLoggedin = useSelector(selectIsLoggedin);
   const userName = useSelector(selectUserName);
 
   return isLoggedin ? (
-    <FlexContainer>
-      <Titel>Hello {userName}!</Titel>
+    <div>
+      <p>Hello {userName}!</p>
       <Button
         variant="link"
         colorScheme="purple"
@@ -23,10 +22,10 @@ export default function HomePage() {
       >
         <Link to="/contacts">To my contacts</Link>
       </Button>
-    </FlexContainer>
+    </div>
   ) : (
     <>
-      <Titel>Wellcome to Phonebook!</Titel>
+      <p>Wellcome to Phonebook!</p>
     </>
   );
 }
